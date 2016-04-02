@@ -1,0 +1,1 @@
+You can visit this page at https://railstwittersample.herokuapp.com/
