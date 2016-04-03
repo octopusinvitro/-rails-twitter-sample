@@ -52,6 +52,7 @@ class UserTest < ActiveSupport::TestCase
       user.name@example.
       foo@bar_baz.com 
       foo@bar+baz.com
+      foo@bar..com
     ]
     invalid_addresses.each do |invalid_address|
       @user.email = invalid_address
@@ -69,7 +70,7 @@ class UserTest < ActiveSupport::TestCase
   test "email addresses should be saved as lowercase" do
     @user.email = "USER@EXAMPLE.COM"
     @user.save
-    assert_equal "user@example.com", User.find(1).email
+    assert_equal "user@example.com", @user.reload.email
   end
 
   test "password should be present (nonblank)" do
