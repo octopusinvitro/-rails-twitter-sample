@@ -65,4 +65,10 @@ class UserTest < ActiveSupport::TestCase
     assert duplicate_user.invalid?
   end
 
+  test "email addresses should be saved as lowercase" do
+    @user.email = "USER@EXAMPLE.COM"
+    @user.save
+    assert_equal "user@example.com", User.find(1).email
+  end
+
 end
