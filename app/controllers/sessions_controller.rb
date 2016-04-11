@@ -29,6 +29,7 @@ class SessionsController < ApplicationController
 
   def success(user)
     log_in user
+    remember user
     redirect_to user
   end
 
