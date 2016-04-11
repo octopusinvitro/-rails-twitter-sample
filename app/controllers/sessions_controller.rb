@@ -4,9 +4,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = get_user_from_login
-    if valid_login(user)
-      success(user)
+    @user = get_user_from_login
+    if valid_login?
+      success
     else
       error
     end
@@ -23,14 +23,14 @@ class SessionsController < ApplicationController
     User.find_by(email: params[:session][:email].downcase)
   end
 
-  def valid_login(user)
-    user && user.authenticate(params[:session][:password])
+  def valid_login?
+    @user && @user.authenticate(params[:session][:password])
   end
 
-  def success(user)
-    log_in user
-    params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-    redirect_to user
+  def success
+    log_in @user
+    params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
+    redirect_to @user
   end
 
   def error
