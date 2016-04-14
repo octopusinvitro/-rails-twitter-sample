@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
   def success
     log_in @user
     params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
-    redirect_to @user
+    redirect_back_or(@user)
   end
 
   def error
