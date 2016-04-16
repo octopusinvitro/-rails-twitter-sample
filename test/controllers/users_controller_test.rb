@@ -38,7 +38,6 @@ class UsersControllerTest < ActionController::TestCase
         password_confirmation:'password'
       }
     end
-    assert_redirected_to user_path(assigns(:user))
   end
 
   test "should redirect edit when not logged in" do
