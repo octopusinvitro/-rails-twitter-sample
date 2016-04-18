@@ -16,6 +16,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
   test "layout links for logged in users" do
     user = users(:archer)
     log_in_as(user)
+
     get root_path
     assert_template 'static_pages/home'
     assert_select "a[href=?]", users_path
