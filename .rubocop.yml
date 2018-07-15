@@ -1,0 +1,24 @@
+AllCops:
+  DisplayCopNames: true
+  TargetRubyVersion: 2.5.1
+  Exclude:
+    - 'db/schema.rb'
+
+Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'test/**/*.rb'
+
+Metrics/ClassLength:
+  Exclude:
+    - 'test/**/*.rb'
+
+Metrics/LineLength:
+  Exclude:
+    - 'Gemfile'
+
+Lint/ScriptPermission:
+  Exclude:
+    - 'bin/*'

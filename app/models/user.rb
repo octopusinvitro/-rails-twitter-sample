@@ -1,11 +1,12 @@
-class User < ActiveRecord::Base
+# frozen_string_literal: true
 
+class User < ActiveRecord::Base
   has_many :microposts, dependent: :destroy
-  has_many :active_relationships, class_name:   "Relationship",
-                                  foreign_key:  "follower_id",
+  has_many :active_relationships, class_name:   'Relationship',
+                                  foreign_key:  'follower_id',
                                   dependent:    :destroy
-  has_many :passive_relationships, class_name:  "Relationship",
-                                   foreign_key: "followed_id",
+  has_many :passive_relationships, class_name:  'Relationship',
+                                   foreign_key: 'followed_id',
                                    dependent:   :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
@@ -25,8 +26,6 @@ class User < ActiveRecord::Base
   before_create :create_activation_digest
 
   def self.digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                                  BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
 
@@ -92,13 +91,20 @@ class User < ActiveRecord::Base
 
   private
 
-    def downcase_email
-      self.email = email.downcase
+  def cost
+    if ActiveModel::SecurePassword.min_cost
+      BCrypt::Engine::MIN_COST
+    else
+      BCrypt::Engine.cost
     end
+  end
 
-    def create_activation_digest
-      self.activation_token  = User.new_token
-      self.activation_digest = User.digest(activation_token)
-    end
+  def downcase_email
+    self.email = email.downcase
+  end
 
+  def create_activation_digest
+    self.activation_token  = User.new_token
+    self.activation_digest = User.digest(activation_token)
+  end
 end

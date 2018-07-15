@@ -1,28 +1,39 @@
+# frozen_string_literal: true
+
 ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../../config/environment', __FILE__)
+require File.expand_path('../config/environment', __dir__)
 require 'rails/test_help'
-require "minitest/reporters"
+
+require 'coveralls'
+Coveralls.wear!
+
+require 'minitest/reporters'
 Minitest::Reporters.use!
 
+require 'pry'
 
-class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
+module ActiveSupport
+  class TestCase
+    # Setup all fixtures in test/fixtures/*.yml for all tests
+    # in alphabetical order.
+    fixtures :all
 
-  # Add more helper methods to be used by all tests here...
-  include ApplicationHelper
+    # Add more helper methods to be used by all tests here...
+    include ApplicationHelper
 
-  def is_logged_in?
-    !session[:user_id].nil?
-  end
+    def logged_in?
+      !session[:user_id].nil?
+    end
 
-  def log_in_as(user, options = {})
-    integration_test? ?
-      integration_test_login(user, options) :
-      normal_test_login(user)
-  end
+    def log_in_as(user, options = {})
+      if integration_test?
+        integration_test_login(user, options)
+      else
+        normal_test_login(user)
+      end
+    end
 
-  private
+    private
 
     def integration_test?
       defined?(post_via_redirect)
@@ -39,5 +50,5 @@ class ActiveSupport::TestCase
     def normal_test_login(user)
       session[:user_id] = user.id
     end
-
+  end
 end
