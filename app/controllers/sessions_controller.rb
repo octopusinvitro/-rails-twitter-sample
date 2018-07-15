@@ -1,10 +1,10 @@
-class SessionsController < ApplicationController
+# frozen_string_literal: true
 
-  def new
-  end
+class SessionsController < ApplicationController
+  def new; end
 
   def create
-    @user = get_user_from_login
+    @user = user_from_login
     if valid_login?
       success
     else
@@ -19,12 +19,12 @@ class SessionsController < ApplicationController
 
   private
 
-  def get_user_from_login
+  def user_from_login
     User.find_by(email: params[:session][:email].downcase)
   end
 
   def valid_login?
-    @user && @user.authenticate(params[:session][:password])
+    @user&.authenticate(params[:session][:password])
   end
 
   def success
@@ -33,17 +33,15 @@ class SessionsController < ApplicationController
       params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
       redirect_back_or @user
     else
-      message  = "Account not activated. "
-      message += "Check your email for the activation link."
+      message  = 'Account not activated. '
+      message += 'Check your email for the activation link.'
       flash[:warning] = message
       redirect_to root_url
     end
-
   end
 
   def error
     flash.now[:danger] = 'Invalid email/password combination'
     render 'new'
   end
-
 end

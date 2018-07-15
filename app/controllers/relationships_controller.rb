@@ -1,5 +1,6 @@
-class RelationshipsController < ApplicationController
+# frozen_string_literal: true
 
+class RelationshipsController < ApplicationController
   before_action :logged_in_user
 
   def create
@@ -21,5 +22,4 @@ class RelationshipsController < ApplicationController
       format.js
     end
   end
-
 end

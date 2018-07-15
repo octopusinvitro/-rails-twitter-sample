@@ -11,6 +11,14 @@ Metrics/BlockLength:
   Exclude:
     - 'test/**/*.rb'
 
+Metrics/ClassLength:
+  Exclude:
+    - 'test/**/*.rb'
+
+Metrics/LineLength:
+  Exclude:
+    - 'Gemfile'
+
 Lint/ScriptPermission:
   Exclude:
     - 'bin/*'
