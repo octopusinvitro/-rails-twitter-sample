@@ -1,5 +1,8 @@
-
-# README
+[![Build Status](https://travis-ci.org/octopusinvitro/rails-twitter-sample.svg?branch=master)](https://travis-ci.org/octopusinvitro/rails-twitter-sample)
+[![build status](https://gitlab.com/octopusinvitro/rails-twitter-sample/badges/master/build.svg)](https://gitlab.com/octopusinvitro/rails-twitter-sample/commits/master)
+[![Coverage Status](https://coveralls.io/repos/github/octopusinvitro/rails-twitter-sample/badge.svg?branch=master)](https://coveralls.io/github/octopusinvitro/rails-twitter-sample?branch=master)
+[![Dependency status](https://badges.depfu.com/badges/6b7c2bb425e8f73c23c250bc4e327596/overview.svg)](https://depfu.com/github/octopusinvitro/rails-twitter-sample?project=Bundler)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a610cfdea1110898a3eb/maintainability)](https://codeclimate.com/github/octopusinvitro/rails-twitter-sample/maintainability)
 
 This is a more advanced app to simulate a blog where you have to log in with an admin account in order to perform cRUD operations on the database.
 

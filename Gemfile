@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.5.1'
 
 gem 'rails',          '5.0.6'
 gem 'bcrypt',         '3.1.7'
@@ -28,9 +29,14 @@ group :development, :test do
 end
 
 group :test do
-  gem 'minitest-reporters', '1.0.5'
-  gem 'mini_backtrace',     '0.1.3'
+  gem 'coveralls', require: false
   gem 'guard-minitest',     '2.3.1'
+  gem 'mini_backtrace',     '0.1.3'
+  gem 'minitest-reporters', '1.0.5'
+  gem 'pry'
+  gem 'rake'
+  gem 'rspec'
+  gem 'rubocop', require: false
 end
 
 group :production do
