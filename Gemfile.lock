@@ -75,7 +75,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     columnize (0.9.0)
-    concurrent-ruby (1.0.5)
+    concurrent-ruby (1.1.2)
     crass (1.0.4)
     debugger-linecache (1.2.0)
     erubis (2.7.0)
@@ -210,7 +210,7 @@ GEM
       concurrent-ruby (~> 1.0)
     inflecto (0.0.2)
     ipaddress (0.8.3)
-    jbuilder (2.7.0)
+    jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
     jquery-rails (4.3.3)
