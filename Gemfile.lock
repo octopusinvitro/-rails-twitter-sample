@@ -52,7 +52,7 @@ GEM
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
-    bootstrap-will_paginate (0.0.10)
+    bootstrap-will_paginate (1.0.0)
       will_paginate
     builder (3.2.3)
     byebug (3.4.0)
@@ -355,7 +355,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (= 3.1.7)
   bootstrap-sass
-  bootstrap-will_paginate (= 0.0.10)
+  bootstrap-will_paginate (= 1.0.0)
   byebug (= 3.4.0)
   carrierwave (= 0.10.0)
   coffee-rails
