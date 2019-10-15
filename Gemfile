@@ -13,7 +13,7 @@ gem 'sass-rails'
 gem 'uglifier',       '4.1.14'
 gem 'coffee-rails'
 gem 'jquery-rails'
-gem 'turbolinks',     '2.3.0'
+gem 'turbolinks',     '5.2.1'
 gem 'jbuilder'
 gem 'sdoc',           '0.4.0', group: :doc
 
