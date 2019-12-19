@@ -22,7 +22,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'sqlite3',     '1.4.1'
+  gem 'sqlite3',     '1.4.2'
   gem 'byebug',      '11.0.1'
   gem 'spring',      '2.1.0'
 end
