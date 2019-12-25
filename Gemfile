@@ -34,7 +34,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg',             '1.1.4'
+  gem 'pg',             '1.2.0'
   gem 'rails_12factor', '0.0.3'
   gem 'puma',           '4.3.1'
 end
