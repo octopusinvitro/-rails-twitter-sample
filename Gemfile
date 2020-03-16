@@ -15,7 +15,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks',     '5.2.1'
 gem 'jbuilder'
-gem 'sdoc',           '0.4.0', group: :doc
+gem 'sdoc',           '1.1.0', group: :doc
 
 group :development do
   gem 'web-console'
